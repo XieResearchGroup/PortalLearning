@@ -16,7 +16,7 @@ This repository provides script to replicate experiments in PortalCG paper
 
 
 # Environment setup
-Necessary packages to be installed have been specified in environment_setup.txt
+Necessary packages to be installed have been specified in <code>environment_setup.txt<code>
 
 # Data
 You can download data and pretrained weights from [here](https://zenodo.org/record/5701618#.YZHfmmDMKUk)
