@@ -22,22 +22,28 @@ Necessary packages to be installed have been specified in <code>environment_setu
 You can download data and pretrained weights from [here](https://zenodo.org/record/5701618#.YZHfmmDMKUk)
 
 # PortalCG training demo
+On a single GPU, the training on the complete ChEMBL dataset takes a week. Here are the instruction to for demo only with a small subset data. There are two phases of training to be carried out sequentially.  
 ## Phase 1, STL: stepwise transfer learning
 ### STL, first step transfer learning
-Pls see DISAE (published on JCIM) repository: 
+Pls see DISAE (published on JCIM) repository [here](https://github.com/XieResearchGroup/DISAE) 
 
 ### STL, second step transfer learning
+The first step pretrained weight for protein descriptor will be transferred into the second step. 
 run: 
 
 The output for demo is a contact map matrix with average MSE
 
 ## Phase 2, OOC: out-of-cluster meta-learning
+The pretraiend weight for protein and chemical descriptors from phase1 STL second step will be transferrred into phase2.
+
 run: 
 
 The output for demo
 
 
 # PortalCG test on DRD3
+Fully trained PortalCG weight is shared in the repository. As described in the paper, use trained PortalCG to predict on DRD with wetlab validation. 
+
 run:
 
 The output:
