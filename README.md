@@ -16,10 +16,10 @@ This repository provides script to replicate experiments in PortalCG paper
 
 
 # Environment setup
-Necessary packages to be installed have been specified in <code>environment_setup.txt</code>
+Necessary packages to be installed have been specified in <code>environment_setup.txt</code>. Docker file can also be found in the folder<code>environment/</code>
 
 # Data
-You can download data and pretrained weights from [here](https://zenodo.org/record/5701618#.YZHfmmDMKUk)
+You can download data and pretrained weights from [here](https://zenodo.org/record/6950921)
 # PortalCG
 NatureCS under reivew. For Code Ocean replication
 
