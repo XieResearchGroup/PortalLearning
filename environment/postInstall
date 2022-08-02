@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+# add-apt-repository ppa:python-3.6
+# apt install python3.6
+# python3.6 get-pip.py
+
+pip install --upgrade pip
+pip install tensorflow==2.3.0
+pip install transformers==2.3.0
+pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio===0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+
+pip install --no-index torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+conda install -c anaconda scipy
+pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install --no-index torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install --no-index torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install torch-geometric
+conda install -c conda-forge rdkit
+pip install pickle5
+conda install -c anaconda pyamg
+pip install pandas==1.1.5
+pip install matplotlib
+pip install seaborn
