@@ -20,14 +20,9 @@ Necessary packages to be installed have been specified in <code>environment_setu
 
 # Data
 You can download data and pretrained weights from [here](https://zenodo.org/record/6950921)
-# PortalCG
-NatureCS under reivew. For Code Ocean replication
+
 
 __NOTE__: PortalCG has three steps with twice transfer learning. Three large databases are used, Pfam, PDB, ChEMBL, all fairly large. *A full replication from scratch will take a month on a single GPU*. Here, we provide demo with trained weights at final step as well as instructions to replicate from scratch in each step.
-
-## Environment setup 
-- If running in Code Ocean, the environment will be set up automatically.
-- If running locally for replication from scratch, pls follow <code>environment setup.txt</code>
 
 ## PortalCG training
 PortalCG has two major components, (a) STL and (b) OOC-ML with 3 steps in total. Pls run the 3 steps in order.
@@ -44,9 +39,5 @@ The second step will train on PDB dataset to predict binding site residue-atom c
 In this final stage, there are 4 splits of data: OOD-train, iid-dev, OOD-dev,OOD-test. In this step, protein descriptor and chemical descriptor are pretrained in step2.
 
 - To run for a short demo for only 20 steps with trained weights to check OOD-test AUC scores reported in __Table 2__: <code>python train_MAML_4split.py </code>
-- To replicate __Figure 3(B)__ and __Figure S6__, pls run jupyter notebook: <code>exp_4split_logs/[PLOT]4 split.ipynb</code>
 - To run from scratch: <code>python train_MAML_4split.py --fr_scratch=True --global_step=60000 --global_eval_step=80 </code>
 
-
-## PortalCG prediction on DRD3 with wetlab validation 
-- To verify the reported AUC scores on DRD3 with trained model: <code>python test_DRD.py</code>
