@@ -1,4 +1,4 @@
-# PortalLearning
+# PortalCG: Structure-enhanced Deep Meta-learning Predicts Billions of Uncharted Chemical-Protein Interactions on a Genome-scale
 
 ![](dark-space-bubble.png)
 Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
