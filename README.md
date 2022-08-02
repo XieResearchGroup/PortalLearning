@@ -20,32 +20,33 @@ Necessary packages to be installed have been specified in <code>environment_setu
 
 # Data
 You can download data and pretrained weights from [here](https://zenodo.org/record/5701618#.YZHfmmDMKUk)
+# PortalCG
+NatureCS under reivew. For Code Ocean replication
 
-# PortalCG training demo
-On a single GPU, the training on the complete ChEMBL dataset takes a week. Here are the instruction to for demo only with a small subset data. There are two phases of training to be carried out sequentially.  
-## Phase 1, STL: stepwise transfer learning
-### STL, first step transfer learning
-Pls see DISAE (published on JCIM) repository [here](https://github.com/XieResearchGroup/DISAE) 
+__NOTE__: PortalCG has three steps with twice transfer learning. Three large databases are used, Pfam, PDB, ChEMBL, all fairly large. *A full replication from scratch will take a month on a single GPU*. Here, we provide demo with trained weights at final step as well as instructions to replicate from scratch in each step.
 
-### STL, second step transfer learning
-The first step pretrained weight for protein descriptor will be transferred into the second step. 
-run: 
+## Environment setup 
+- If running in Code Ocean, the environment will be set up automatically.
+- If running locally for replication from scratch, pls follow <code>environment setup.txt</code>
 
-The output for demo is a contact map matrix with average MSE
+## PortalCG training
+PortalCG has two major components, (a) STL and (b) OOC-ML with 3 steps in total. Pls run the 3 steps in order.
 
-## Phase 2, OOC: out-of-cluster meta-learning
-The pretraiend weight for protein and chemical descriptors from phase1 STL second step will be transferrred into phase2.
+####  Step1, first transfer learning | (a) STL, step-wise transfer learning
+The first step is built on a published work, DISAE (published on JCIM), with replication instructions. In this step, a protein language model will be trained on Pfam with MSA-distilled triplets representation. The whole pfam knowlege will be tranfered to step2.
 
-run: 
+#### Step2, second transfer learning | (a) STL, step-wise transfer learning 
+The second step will train on PDB dataset to predict binding site residue-atom contact map with protein descriptor pretrained in step1 and to be further tuned in this step. 
+- To run from scratch: <code>python train_DTI_distance.py --batch_size=128 --eval_at=200 --global_step=40000</code>
 
-The output for demo
+ 
+#### Step3, final DTI prediction | (b) OOC-ML, out-of-cluster meta learning
+In this final stage, there are 4 splits of data: OOD-train, iid-dev, OOD-dev,OOD-test. In this step, protein descriptor and chemical descriptor are pretrained in step2.
+
+- To run for a short demo for only 20 steps with trained weights to check OOD-test AUC scores reported in __Table 2__: <code>python train_MAML_4split.py </code>
+- To replicate __Figure 3(B)__ and __Figure S6__, pls run jupyter notebook: <code>exp_4split_logs/[PLOT]4 split.ipynb</code>
+- To run from scratch: <code>python train_MAML_4split.py --fr_scratch=True --global_step=60000 --global_eval_step=80 </code>
 
 
-# PortalCG test on DRD3
-Fully trained PortalCG weight is shared in the repository. As described in the paper, use trained PortalCG to predict on DRD with wetlab validation. 
-
-run:
-
-The output:
-
-Pls run <code>python undruggable_app.py --cwd=''</code>
+## PortalCG prediction on DRD3 with wetlab validation 
+- To verify the reported AUC scores on DRD3 with trained model: <code>python test_DRD.py</code>
