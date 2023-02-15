@@ -12,7 +12,10 @@ This work is licensed under a
 [cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png
 [cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
 
-This repository provides script to replicate experiments in PortalCG paper
+This repository provides script to replicate experiments in PortalCG paper.
+
+# Note to interested users
+Our paper put emphasize on proposing new OOD algorithm. We didn't carry out extensive tuning or cherry picking the best one set of model parameters. If you want to use the model for a specific application, we encourage you to follow the described training procedure and carry out model tuning in a swiping style for the best performance.
 
 
 # Environment setup
