@@ -7,9 +7,9 @@ from torch.autograd import Variable
 from torch.nn import Sequential, ModuleList, Linear, ReLU, BatchNorm1d, Dropout, LogSoftmax
 #--------------------------
 from torch_geometric.utils import to_dense_batch
-from model_Yang import *
-from models_pipeline import *
-from model_piple_utils import *
+from model_Yang_test import *
+from models_pipeline_test import *
+from model_piple_utils_test import *
 from data_tool_box import *
 
 #--------------------------

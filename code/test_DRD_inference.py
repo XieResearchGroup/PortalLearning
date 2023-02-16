@@ -1,7 +1,7 @@
 import argparse
 from utils import *
 from data_tool_box import *
-from utils_MAML import  *
+from utils_MAML_test import  *
 # --------------
 import torch
 from torch import  nn
@@ -9,10 +9,10 @@ from torch.nn import functional as F
 from rdkit import Chem
 # -------------
 from models_MAML_test import  *
-from models_pipeline import *
-from model_piple_utils import *
+from models_pipeline_test import *
+from model_piple_utils_test import *
 from model_Yang_test import *
-from utils_esemble import *
+from utils_esemble_test import *
 
 # import matplotlib.pyplot as plt
 # import numpy as np
@@ -40,7 +40,7 @@ def scores(portal):
 
 DRD_path =  '../data/DRD/'
 input_file = DRD_path +'drd_map.pkl'
-batchsize= 5
+batchsize= 13
 threshold=0.58
 
 DTI_classifier_config ={
@@ -107,6 +107,7 @@ for protein in dark_proteins:
         batch_drug_name.index = ikey_list[j*args['batchsize']:(j+1)*args['batchsize']]
         one_protein= pd.concat([one_protein,batch_drug_name])
     screened_pfam[protein]= one_protein
+    print(screened_pfam)
 
 df_all = pd.DataFrame()
 for protein in dark_proteins:
