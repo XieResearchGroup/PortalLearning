@@ -1,5 +1,4 @@
 # PortalCG
-NatureCS under reivew. For Code Ocean replication
 
 __NOTE__: PortalCG has three steps with twice transfer learning. Three large databases are used, Pfam, PDB, ChEMBL, all fairly large. *A full replication from scratch will take a month on a single GPU*. Here, we provide demo with trained weights at final step as well as instructions to replicate from scratch in each step.
 
@@ -26,5 +25,3 @@ In this final stage, there are 4 splits of data: OOD-train, iid-dev, OOD-dev,OOD
 - To run from scratch: <code>python train_MAML_4split.py --fr_scratch=True --global_step=60000 --global_eval_step=80 </code>
 
 
-## PortalCG prediction on DRD3 with wetlab validation 
-- To verify the reported AUC scores on DRD3 with trained model: <code>python test_DRD.py</code>
